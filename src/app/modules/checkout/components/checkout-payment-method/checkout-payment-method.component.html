@@ -1,0 +1,48 @@
+<div class="payment">
+  <div class="item">
+    <div class="header">
+      <img class="image" src="assets/icons/dark/card.svg" />
+      <span class="title">Credit Card</span>
+      <div class="checkbox">
+        <input
+               type="radio"
+               name="radioPaymentMethod"
+               id="radioCraditCard"
+               [disabled]="disabled"
+               [checked]="paymentMethod === PaymentMethodEnum.CREDIT_CARD"
+               (click)="paymentMethodSelected.emit(PaymentMethodEnum.CREDIT_CARD)" />
+        <label for="radioCraditCard"></label>
+      </div>
+    </div>
+
+    <div class="content"
+         [class.open]="paymentMethod === PaymentMethodEnum.CREDIT_CARD">
+      <app-checkout-credit-card [disabled]="disabled"
+                                (formChanged)="onCreditCardChanged($event)"
+                                (formSubmitted)="onFormSubmitted()"></app-checkout-credit-card>
+    </div>
+  </div>
+  <div class="item">
+    <div class="header">
+      <img class="image" src="assets/icons/dark/gift.svg" />
+      <span class="title">Gift Card</span>
+      <div class="checkbox">
+        <input
+               type="radio"
+               name="radioPaymentMethod"
+               id="radioGiftCard"
+               [disabled]="disabled"
+               [checked]="paymentMethod === PaymentMethodEnum.GIFT_CARD"
+               (click)="paymentMethodSelected.emit(PaymentMethodEnum.GIFT_CARD)" />
+        <label for="radioGiftCard"></label>
+      </div>
+    </div>
+
+    <div class="content"
+         [class.open]="paymentMethod === PaymentMethodEnum.GIFT_CARD">
+      <app-checkout-gift-card [disabled]="disabled"
+                              (formChanged)="onGiftCardChanged($event)"
+                              (formSubmitted)="onFormSubmitted()"></app-checkout-gift-card>
+    </div>
+  </div>
+</div>

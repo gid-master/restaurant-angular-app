@@ -1,0 +1,9 @@
+<div class="add" [class.large]="large">
+  <button [disabled]="disabledMax" (click)="incrementClicked.emit(1)">
+    <img src="assets/icons/light/add.svg" />
+  </button>
+  <span>{{ quantity }}</span>
+  <button [disabled]="disabledMin" (click)="incrementClicked.emit(-1)">
+    <img src="assets/icons/light/remove.svg" />
+  </button>
+</div>

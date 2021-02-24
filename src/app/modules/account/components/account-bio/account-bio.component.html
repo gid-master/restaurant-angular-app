@@ -1,0 +1,10 @@
+<div class="bio">
+  <h2>{{ user?.name }}</h2>
+  <span>{{ user?.email }}</span>
+
+  <div class="button-wrapper">
+    <app-button-standard name="Logout application"
+                         [center]="true"
+                         (buttonClicked)="logoutClicked.emit()"></app-button-standard>
+  </div>
+</div>

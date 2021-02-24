@@ -1,0 +1,28 @@
+<div class="modal" [class.show]="showModal$ | async">
+  <div class="content">
+    <h2>{{ title }}</h2>
+
+    <span class="success">
+      <div class="success-checkmark" *ngIf="processed">
+        <div class="check-icon">
+          <span class="icon-line line-tip"></span>
+          <span class="icon-line line-long"></span>
+          <div class="icon-circle"></div>
+          <div class="icon-fix"></div>
+        </div>
+      </div>
+      <div class="processing-ripple" *ngIf="!processed">
+        <div></div>
+        <div></div>
+      </div>
+      <span class="text">{{ message }}</span>
+    </span>
+
+    <app-button-standard *ngIf="button"
+                         [name]="button"
+                         [center]="true"
+                         [disabled]="!processed"
+                         (buttonClicked)="modalClicked.emit()">
+    </app-button-standard>
+  </div>
+</div>

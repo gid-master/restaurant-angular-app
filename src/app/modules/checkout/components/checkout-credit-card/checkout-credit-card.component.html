@@ -1,0 +1,49 @@
+<form novalidate class="form" [formGroup]="formGroup" #form="ngForm" (ngSubmit)="onSubmit()">
+  <div class="controller"
+       [class.error]="formGroup.get(CONTROL_FORM.NAME_HOLDER).invalid && formGroup.get(CONTROL_FORM.NAME_HOLDER).dirty">
+    <label class="label"><small>Name on card</small></label>
+    <input [formControlName]="CONTROL_FORM.NAME_HOLDER"
+           type="text"
+           class="input" />
+    <span class="message"
+          *ngIf="formGroup.get(CONTROL_FORM.NAME_HOLDER).hasError('required') && formGroup.get(CONTROL_FORM.NAME_HOLDER).dirty">
+      <small>Name holder is required.</small>
+    </span>
+  </div>
+
+  <div class="controller"
+       [class.error]="formGroup.get(CONTROL_FORM.CARD_NUMBER).invalid  && formGroup.get(CONTROL_FORM.CARD_NUMBER).dirty">
+    <label class="label"><small>Card number</small></label>
+    <input [formControlName]="CONTROL_FORM.CARD_NUMBER"
+           type="number"
+           class="input" />
+    <span class="message" *ngIf="formGroup.get(CONTROL_FORM.CARD_NUMBER).dirty">
+      <small *ngIf="formGroup.get(CONTROL_FORM.CARD_NUMBER).hasError('required')">Card number is required.</small>
+      <small *ngIf="formGroup.get(CONTROL_FORM.CARD_NUMBER).hasError('creditCartValidator')">Card invalid.</small>
+    </span>
+  </div>
+
+  <div class="controller half"
+       [class.error]="formGroup.get(CONTROL_FORM.CVV).invalid  && formGroup.get(CONTROL_FORM.CVV).dirty">
+    <label class="label"><small>CVV</small></label>
+    <input [formControlName]="CONTROL_FORM.CVV"
+           type="number"
+           class="input" />
+    <span class="message"
+          *ngIf="formGroup.get(CONTROL_FORM.CVV).hasError('required') && formGroup.get(CONTROL_FORM.CVV).dirty">
+      <small>Cvv is required.</small>
+    </span>
+  </div>
+
+  <div class="controller half"
+       [class.error]="formGroup.get(CONTROL_FORM.EXPIRATION).invalid && formGroup.get(CONTROL_FORM.EXPIRATION).dirty">
+    <label class="label"><small>Expiration</small></label>
+    <input [formControlName]="CONTROL_FORM.EXPIRATION"
+           type="text"
+           class="input" />
+    <span class="message"
+          *ngIf="formGroup.get(CONTROL_FORM.EXPIRATION).hasError('required') && formGroup.get(CONTROL_FORM.EXPIRATION).dirty">
+      <small>Date is required.</small>
+    </span>
+  </div>
+</form>

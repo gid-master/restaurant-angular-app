@@ -1,0 +1,75 @@
+<div *ngLet="cart$ | async as cart">
+
+  <app-wrapper *ngIf="cart.length === 0">
+    <app-container>
+      <app-checkout-empty (backClicked)="onBackClicked()"></app-checkout-empty>
+    </app-container>
+  </app-wrapper>
+
+  <app-wrapper *ngIf="cart.length > 0">
+
+    <app-container>
+      <app-block title="Your Products"
+                 link="keep ordering"
+                 (linkClicked)="onKeepOrderingClicked()">
+        <app-checkout-products [cart]="cart"
+                               (cartClicked)="onCartClicked($event)">
+
+        </app-checkout-products>
+      </app-block>
+    </app-container>
+
+    <app-container>
+      <app-block title="Payment Details">
+        <app-checkout-payment-method [paymentMethod]="paymentMethod"
+                                     [disabled]="processing$ | async"
+                                     (paymentMethodSelected)="onPaymentMethodSelected($event)"
+                                     (paymentMethodSubmitted)="onPaymentMethodSubmitted($event, cart)">
+        </app-checkout-payment-method>
+      </app-block>
+    </app-container>
+
+
+    <app-container>
+      <app-block title="Your Summary" subtitle="double check each item before">
+        <app-checkout-total [cartSummary]="cartSummary$ | async"></app-checkout-total>
+      </app-block>
+    </app-container>
+
+
+    <app-container *ngLet="user$ | async as user">
+
+
+      <app-button-standard *ngIf="user"
+                           icon="cart"
+                           name="Complete the Payment"
+                           [center]="true"
+                           (buttonClicked)="onPaymentClicked()"></app-button-standard>
+
+      <app-button-standard *ngIf="!user"
+                           icon="profile"
+                           name="Login to proceed"
+                           [center]="true"
+                           (buttonClicked)="onLoginClicked()"></app-button-standard>
+
+    </app-container>
+
+  </app-wrapper>
+
+
+  <app-modal-bottom-sheet id="actions" title="Change your order ?">
+    <app-checkout-action *ngIf="preferredCart"
+                         [cart]="preferredCart"
+                         (editCartClicked)="onEditCartClicked()"
+                         (deleteCartClicked)="onDeleteCartClicked()"></app-checkout-action>
+  </app-modal-bottom-sheet>
+
+
+  <app-modal-success id="payment"
+                     button="keep ordering"
+                     title="Processing your order"
+                     message="your order was processed successfully"
+                     [processed]="processed$ | async"
+                     (modalClicked)="onOrderProcessed()"></app-modal-success>
+
+</div>

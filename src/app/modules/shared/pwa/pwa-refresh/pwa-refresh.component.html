@@ -1,0 +1,13 @@
+<div class="new-content">
+  <p>
+    Restaurant application has a new version available, click on the button to
+    update it.
+  </p>
+
+  <div class="button">
+    <app-button-standard icon="thumb_up"
+                         name="update right now"
+                         [center]="true"
+                         (buttonClicked)="refreshClicked.emit()"></app-button-standard>
+  </div>
+</div>

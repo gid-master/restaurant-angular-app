@@ -1,0 +1,13 @@
+<button
+        [type]="submit ? 'submit' : 'button'"
+        [disabled]="disabled"
+        (click)="onButtonClicked()"
+        class="button"
+        [class.disabled]="disabled"
+        [class.center]="center"
+        [class.small]="small"
+        [class.transparent]="transparent">
+  <img *ngIf="icon" [src]="'assets/icons/light/' + icon + '.svg'" />
+  <span class="text">{{ name }}</span>
+  <span class="detail" *ngIf="detail">{{ detail }}</span>
+</button>

@@ -1,0 +1,15 @@
+<div class="action">
+  <span>{{cart.product.quantity + 'x ' + cart.product.name + ' - ' + (total | currency)}}</span>
+  <div class="item">
+    <app-button-standard icon="edit"
+                         name="Change item of this order"
+                         [center]="true"
+                         (buttonClicked)="editCartClicked.emit()"></app-button-standard>
+  </div>
+  <div class="item">
+    <app-button-standard icon="delete"
+                         name="Remove item from this order"
+                         [center]="true"
+                         (buttonClicked)="deleteCartClicked.emit()"></app-button-standard>
+  </div>
+</div>

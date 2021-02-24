@@ -1,0 +1,34 @@
+@import "./variables";
+
+.block {
+    background-color: $third-color;
+    border-radius: 10px;
+    padding: $padding;
+
+    &:not(:last-child) {
+        margin-bottom: $app-vertical;
+    }
+
+    .header {
+        margin-bottom: $padding;
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .title {
+                color: $text-dark;
+            }
+
+            .link {
+                color: $primary-color;
+            }
+        }
+
+        .subtitle {
+            margin-top: 5px;
+            color: $text-dark-secondary;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+<div class="shortcut">
+  <app-home-shortcut-button
+                            name="Menu"
+                            icon="menu"
+                            (buttonClicked)="buttonClicked.emit('menu')"></app-home-shortcut-button>
+
+  <app-home-shortcut-button
+                            name="Account"
+                            icon="profile"
+                            (buttonClicked)="buttonClicked.emit('account')"></app-home-shortcut-button>
+
+  <app-home-shortcut-button
+                            name="Install"
+                            icon="touch_app"
+                            (buttonClicked)="buttonClicked.emit('install')"></app-home-shortcut-button>
+
+  <app-home-shortcut-button
+                            name="about"
+                            icon="help"
+                            (buttonClicked)="buttonClicked.emit('about')"></app-home-shortcut-button>
+</div>

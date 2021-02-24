@@ -1,0 +1,23 @@
+<div class="card">
+  <img fallback [src]="product.image" />
+  <div class="details">
+    <span class="title">{{ product.name }}</span>
+    <p class="description">
+      <small>
+        {{ product.description }}
+      </small>
+    </p>
+    <div class="actions">
+      <span class="price">
+        {{ product.price | currency }}
+        <small class="discount" *ngIf="product.previousPrice > 0">
+          {{product.previousPrice | currency}}
+        </small>
+      </span>
+      <button
+              class="button"
+              type="button"
+              (click)="productClicked.emit(product.sku)">Order</button>
+    </div>
+  </div>
+</div>

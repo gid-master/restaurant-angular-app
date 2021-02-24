@@ -1,0 +1,8 @@
+<div class="list">
+  <div class="item" *ngFor="let item of cart; let i = index">
+    <app-checkout-product-card [product]="item.product"
+                               (cartClicked)="cartClicked.emit(item)">
+    </app-checkout-product-card>
+    <hr *ngIf="i < cart.length - 1" />
+  </div>
+</div>

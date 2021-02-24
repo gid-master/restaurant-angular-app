@@ -1,0 +1,20 @@
+<div class="review">
+  <div class="summary">
+    <div class="stars">
+      <img src="assets/icons/gold/star.svg" />
+      <span>{{(reviews.totalRating / reviews.totalReviews).toFixed(1)}}</span>
+    </div>
+    <span>{{ reviews.totalReviews }} reviews</span>
+  </div>
+
+  <div class="overview">
+    <div class="vote" *ngFor="let index of [1,2,3,4,5]">
+      <span class="star">{{ index }}</span>
+      <div class="bar">
+        <div class="progress"
+             [style.width.%]="(reviews['rating' + index] * 100) / reviews.totalReviews"></div>
+      </div>
+      <span class=" quantity">{{ reviews["rating" + index] }}</span>
+    </div>
+  </div>
+</div>

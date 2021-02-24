@@ -1,0 +1,14 @@
+{
+   "editor.fontFamily": "Fira Code",
+   "editor.fontLigatures": true,
+   "editor.fontSize": 12,
+   "workbench.colorTheme": "Omni",
+   "editor.rulers": [170],
+
+
+   "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true,
+    }
+}

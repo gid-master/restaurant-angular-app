@@ -1,0 +1,5 @@
+@import "./variables";
+
+.wrapper {
+    padding: $app-vertical $app-horizontal $toolbar $app-horizontal;
+}

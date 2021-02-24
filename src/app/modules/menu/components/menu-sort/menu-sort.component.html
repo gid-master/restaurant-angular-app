@@ -1,0 +1,49 @@
+<div class="sort">
+  <div class="item">
+    <app-button-circle
+                       name="Relevant"
+                       icon="relevant"
+                       [selected]="sortId === 'relevant'"
+                       (buttonClicked)="sortClicked.emit('relevant')"></app-button-circle>
+  </div>
+
+  <div class="item">
+    <app-button-circle
+                       name="A-Z"
+                       icon="alpha"
+                       [selected]="sortId === 'alpha'"
+                       (buttonClicked)="sortClicked.emit('alpha')"></app-button-circle>
+  </div>
+
+  <div class="item">
+    <app-button-circle
+                       name="Price"
+                       icon="price"
+                       [selected]="sortId === 'price'"
+                       (buttonClicked)="sortClicked.emit('price')"></app-button-circle>
+  </div>
+
+  <div class="item">
+    <app-button-circle
+                       name="Calorie"
+                       icon="calories"
+                       [selected]="sortId === 'calories'"
+                       (buttonClicked)="sortClicked.emit('calories')"></app-button-circle>
+  </div>
+
+  <div class="item">
+    <app-button-circle
+                       name="Category"
+                       icon="category"
+                       [selected]="sortId === 'category'"
+                       (buttonClicked)="sortClicked.emit('category')"></app-button-circle>
+  </div>
+
+  <div class="item">
+    <app-button-circle
+                       name="Review"
+                       icon="review"
+                       [selected]="sortId === 'review'"
+                       (buttonClicked)="sortClicked.emit('review')"></app-button-circle>
+  </div>
+</div>

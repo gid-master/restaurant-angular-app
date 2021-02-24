@@ -1,0 +1,40 @@
+<div class="card" (click)="productClicked.emit(product.sku)">
+  <div class="macro">
+    <img class="image" fallback [src]="product.image" />
+    <div class="details">
+      <span class="name">{{ product.name }}</span>
+      <div class="row1">
+        <span class="price">
+          <small>{{ product.price | currency }}</small>
+          <small class="discount" *ngIf="product.previousPrice > 0">
+            {{product.previousPrice | currency}}
+          </small>
+        </span>
+        <span class="calories">
+          <small>{{ product.calories }}cal</small>
+        </span>
+      </div>
+      <div class="row2">
+        <div class="category">
+          <img [src]="'assets/categories/' + product.category + '.svg'" />
+          <span>
+            <small>{{ product.category }}</small>
+          </span>
+        </div>
+
+        <div class="review">
+          <img src="assets/icons/gold/star.svg" />
+          <span>
+            <small>{{(product.reviews.totalRating / product.reviews.totalReviews).toFixed(1)}} ({{
+              product.reviews.totalReviews }})</small>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="description">
+    <small>
+      {{ product.description }}
+    </small>
+  </p>
+</div>

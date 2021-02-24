@@ -1,0 +1,4 @@
+<div *ngLet="(showSnackbar$ | async) as message" class="snackbar" [class.show]="message !== null">
+  <span>{{ message }}</span>
+  <img src="assets/icons/light/clear.svg" (click)="onSnackbarClicked()" />
+</div>

@@ -1,0 +1,12 @@
+<div>
+  <app-modal-bottom-sheet id="install-modal" title="Install Application">
+    <app-pwa-install [ios]="ios"
+                     [installed]="installed || !deferredPrompt"
+                     [developmentMode]="developmentMode"
+                     (installClicked)="onInstallClicked()"></app-pwa-install>
+  </app-modal-bottom-sheet>
+
+  <app-modal-bottom-sheet id="refresh-modal" title="Update Application">
+    <app-pwa-refresh (refreshClicked)="onRefreshClicked()"></app-pwa-refresh>
+  </app-modal-bottom-sheet>
+</div>

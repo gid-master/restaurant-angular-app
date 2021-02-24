@@ -1,0 +1,48 @@
+<app-wrapper>
+
+  <app-container>
+    <app-home-intro [user]="user$ | async"></app-home-intro>
+  </app-container>
+
+  <app-container>
+    <app-home-shortcut (buttonClicked)="onShortcutClicked($event)"></app-home-shortcut>
+  </app-container>
+
+
+  <app-container title="Promotions"
+                 link="see more"
+                 (linkClicked)="onSeeMoreClicked()">
+
+    <app-grid-row type="cover"
+                  [products]="promotions$ | async"
+                  (productClicked)="onProductClicked($event)"></app-grid-row>
+
+  </app-container>
+
+
+  <app-container title="Suggestions"
+                 link="see more"
+                 (linkClicked)="onSeeMoreClicked()">
+
+    <app-grid-row type="vertical"
+                  [products]="suggestions$ | async"
+                  (productClicked)="onProductClicked($event)"></app-grid-row>
+
+  </app-container>
+
+
+  <app-container title="Special offers"
+                 link="see more"
+                 (linkClicked)="onSeeMoreClicked()">
+
+    <app-grid-row type="horizontal"
+                  [products]="offers$ | async"
+                  (productClicked)="onProductClicked($event)"></app-grid-row>
+
+  </app-container>
+
+</app-wrapper>
+
+<app-modal-bottom-sheet title="Non-Commercial Use">
+  <app-home-copy-rights></app-home-copy-rights>
+</app-modal-bottom-sheet>

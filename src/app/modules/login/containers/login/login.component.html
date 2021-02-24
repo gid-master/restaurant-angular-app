@@ -1,0 +1,18 @@
+<app-wrapper>
+  <app-container *ngLet="user$ | async">
+
+    <app-login-authenticate *ngIf="!enableRegister"
+                            [processing]="processing$ | async"
+                            [error]="error$ | async"
+                            (submitClicked)="onAuthenticateClicked($event)"
+                            (enableRegisterClicked)="onEnableRegisterClicked($event)"></app-login-authenticate>
+
+
+    <app-login-create-account *ngIf="enableRegister"
+                              [processing]="processing$ | async"
+                              [error]="error$ | async"
+                              (submitClicked)="onRegistereClicked($event)"
+                              (enableRegisterClicked)="onEnableRegisterClicked($event)"></app-login-create-account>
+
+  </app-container>
+</app-wrapper>

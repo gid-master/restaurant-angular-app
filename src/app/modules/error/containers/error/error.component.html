@@ -1,0 +1,16 @@
+<app-wrapper>
+  <app-container>
+    <ng-container [ngSwitch]="errorStatus$ | async">
+      <app-error-notfound *ngSwitchCase="404"></app-error-notfound>
+      <app-error-server *ngSwitchCase="500"></app-error-server>
+      <app-error-unauthorized *ngSwitchCase="401"></app-error-unauthorized>
+      <app-error-unexpected *ngSwitchDefault></app-error-unexpected>
+    </ng-container>
+  </app-container>
+  <app-container>
+    <app-button-standard icon="store"
+                         name="Go back to home"
+                         [center]="true"
+                         (buttonClicked)="onGoBackClicked()"></app-button-standard>
+  </app-container>
+</app-wrapper>

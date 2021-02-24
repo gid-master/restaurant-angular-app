@@ -1,0 +1,50 @@
+<form novalidate class="login" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <h2>My Account</h2>
+
+  <span class="message" *ngIf="error">
+    <small>{{ error }}</small>
+  </span>
+
+  <div class="controller">
+    <input [formControlName]="CONTROL_FORM.EMAIL"
+           type="email"
+           placeholder="Email"
+           class="input"
+           [class.error]="formGroup.get(CONTROL_FORM.EMAIL).invalid && formGroup.get(CONTROL_FORM.EMAIL).dirty" />
+    <span class="error" *ngIf="formGroup.get(CONTROL_FORM.EMAIL).dirty">
+      <small *ngIf="formGroup.get(CONTROL_FORM.EMAIL).hasError('required')">Email is required.</small>
+      <small *ngIf="formGroup.get(CONTROL_FORM.EMAIL).hasError('email')">Email invalid.</small>
+    </span>
+  </div>
+
+
+  <div class="controller">
+    <input [formControlName]="CONTROL_FORM.PASSWORD"
+           type="password"
+           placeholder="Password"
+           class="input"
+           [class.error]="formGroup.get(CONTROL_FORM.PASSWORD).invalid && formGroup.get(CONTROL_FORM.PASSWORD).dirty" />
+    <span class="error"
+          *ngIf="formGroup.get(CONTROL_FORM.PASSWORD).hasError('required') && formGroup.get(CONTROL_FORM.PASSWORD).dirty">
+      <small>Password is required.</small>
+    </span>
+  </div>
+
+
+
+
+  <app-button-standard name="Access my account"
+                       [disabled]="processing"
+                       [submit]="true"
+                       [center]="true"></app-button-standard>
+
+  <span class="account">Don't you have an account yet ?</span>
+
+  <app-button-standard name="Create an account"
+                       [disabled]="processing"
+                       [center]="true"
+                       [transparent]="true"
+                       (buttonClicked)="enableRegisterClicked.emit(true)"></app-button-standard>
+
+  <span class="forgot">forgot your password</span>
+</form>

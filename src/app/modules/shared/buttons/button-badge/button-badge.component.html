@@ -1,0 +1,8 @@
+<button type="button"
+        class="button"
+        [class.selected]="selected"
+        [disabled]="selected"
+        (click)="buttonClicked.emit()">
+  <img [src]="'assets/categories/' + icon + '.svg'" />
+  <span>{{ name }}</span>
+</button>

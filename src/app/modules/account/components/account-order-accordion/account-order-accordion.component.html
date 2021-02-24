@@ -1,0 +1,29 @@
+<div class="order">
+  <ul>
+    <li *ngFor="let order of orders"
+        [class.show]="collapse === order.id">
+      <div class="header" (click)="orderClicked.emit(collapse !== order.id ? order.id : null)">
+        <div class="image">
+          <img class="add" src="assets/icons/light/add.svg" />
+          <img class="remove" src="assets/icons/light/remove.svg" />
+        </div>
+        <span class="title">
+          Order {{ order.date | date }}
+        </span>
+        <span class="total">{{ order.total | currency }}</span>
+      </div>
+
+      <div class="content">
+        <div class="item" *ngFor="let product of order.products; let i = index">
+          <app-account-order-card [orderId]="order.id"
+                                  [product]="product"
+                                  (reviewClicked)="reviewClicked.emit($event)"></app-account-order-card>
+          <hr *ngIf="i < order.products.length - 1" />
+        </div>
+      </div>
+    </li>
+  </ul>
+  <span class="empty" *ngIf="orders.length === 0">
+    you haven't purchased yet.
+  </span>
+</div>

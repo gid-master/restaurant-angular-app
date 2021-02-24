@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="item">
+    <img class="image" fallback [src]="product.image" />
+    <div class="details">
+      <span class="name">{{ product.quantity + "x " + product.name }}</span>
+      <span class="price">{{ product.total | currency }}</span>
+      <div class="review">
+        <img *ngFor="let star of [1,2,3,4,5]"
+             (click)="reviewClicked.emit({ orderId: orderId, productId: product.productId, itemId: product.itemId, review: star})"
+             [src]="'assets/icons/gold/' + (product.review >= star ? 'star_full' : 'star') + '.svg'" />
+      </div>
+    </div>
+  </div>
+  <div class="additionals" *ngIf="product.additionals.length > 0">
+    <ul>
+      <li *ngFor="let additional of product.additionals">
+        {{ additional.quantity * product.quantity + 'x ' + additional.name }}
+      </li>
+    </ul>
+  </div>
+</div>

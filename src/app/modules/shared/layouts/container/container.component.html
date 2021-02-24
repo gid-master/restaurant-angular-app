@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="header" *ngIf="title">
+    <h2 class="title">{{ title }}</h2>
+    <a class="link" (click)="linkClicked.emit()" *ngIf="link">{{ link }}</a>
+  </div>
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,22 @@
+@import "./variables";
+
+.bio {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        color: $text-dark;
+        margin: 5px 0;
+    }
+
+    span {
+        color: $text-dark-secondary;
+        margin-bottom: 20px;
+    }
+
+    .button-wrapper {
+        width: 100%;
+    }
+}

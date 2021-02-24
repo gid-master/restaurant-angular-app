@@ -1,0 +1,23 @@
+<div class="row">
+  <div
+       class="item"
+       [class.cover]="type === 'cover'"
+       [class.vertical]="type === 'vertical'"
+       [class.horizontal]="type === 'horizontal'"
+       *ngFor="let product of products">
+    <app-card-cover
+                    *ngIf="type === 'cover'"
+                    [product]="product"
+                    (productClicked)="productClicked.emit($event)"></app-card-cover>
+
+    <app-card-vertical
+                       *ngIf="type === 'vertical'"
+                       [product]="product"
+                       (productClicked)="productClicked.emit($event)"></app-card-vertical>
+
+    <app-card-horizontal
+                         *ngIf="type === 'horizontal'"
+                         [product]="product"
+                         (productClicked)="productClicked.emit($event)"></app-card-horizontal>
+  </div>
+</div>

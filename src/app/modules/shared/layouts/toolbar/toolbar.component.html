@@ -1,0 +1,22 @@
+<div class="toolbar">
+  <app-button-icon name="Home"
+                   icon="store"
+                   [selected]="toolbarId === 'home'"
+                   (buttonClicked)="toolbarClicked.emit('home')"></app-button-icon>
+
+  <app-button-icon name="Menu"
+                   icon="menu"
+                   [selected]="toolbarId === 'menu'"
+                   (buttonClicked)="toolbarClicked.emit('menu')"></app-button-icon>
+
+  <app-button-icon name="Checkout"
+                   icon="cart"
+                   [badge]="cartQuantity"
+                   [selected]="toolbarId === 'checkout'"
+                   (buttonClicked)="toolbarClicked.emit('checkout')"></app-button-icon>
+
+  <app-button-icon name="Account"
+                   icon="profile"
+                   [selected]="toolbarId === 'account'"
+                   (buttonClicked)="toolbarClicked.emit('account')"></app-button-icon>
+</div>

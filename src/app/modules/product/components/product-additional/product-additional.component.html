@@ -1,0 +1,20 @@
+<div class="additional">
+  <div *ngFor="let additional of additionals; let i = index">
+    <div class="control">
+      <div class="item">
+        <span class="price">{{ additional.price | currency }}</span>
+        <span class="ingredient">{{ additional.name }}</span>
+        <p class="description">
+          <small>{{ additional.description }}</small>
+        </p>
+      </div>
+
+      <app-button-increment [disabledMin]="additional.quantity === 0"
+                            [disabledMax]="additional.quantity === additional.limit || disableIncrement"
+                            [quantity]="additional.quantity"
+                            (incrementClicked)="incrementClicked.emit({id: additional.id, increment:$event})">
+      </app-button-increment>
+    </div>
+    <div class="separator" *ngIf="i < additionals.length - 1"></div>
+  </div>
+</div>

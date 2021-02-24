@@ -1,0 +1,11 @@
+<div class="empty">
+  <div class="image">
+    <img src="assets/icons/primary/cart.svg" />
+  </div>
+  <h2>Your cart is still empty</h2>
+  <p>pick something from our menu</p>
+  <app-button-standard icon="menu"
+                       name="check out our menu"
+                       [center]="true"
+                       (buttonClicked)="backClicked.emit()"></app-button-standard>
+</div>

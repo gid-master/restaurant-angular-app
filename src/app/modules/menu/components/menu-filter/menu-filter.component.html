@@ -1,0 +1,18 @@
+<div id="filter" class="filter">
+  <div id="all" class="item">
+    <app-button-badge
+                      icon="all"
+                      name="all products"
+                      [selected]="!categorySelected"
+                      (buttonClicked)="filterClicked.emit()"> </app-button-badge>
+  </div>
+
+  <div class="item"
+       *ngFor="let category of categories"
+       [id]="category">
+    <app-button-badge
+                      [icon]="category"
+                      [name]="category"
+                      [selected]="categorySelected === category"
+                      (buttonClicked)="filterClicked.emit(category)"></app-button-badge>
+  </div>

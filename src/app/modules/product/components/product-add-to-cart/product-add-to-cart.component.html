@@ -1,0 +1,19 @@
+<div class="add-to-cart">
+  <div class="increment">
+    <app-button-increment [large]="true"
+                          [disabledMin]="quantity === 1"
+                          [disabledMax]="false"
+                          [quantity]="quantity"
+                          (incrementClicked)="incrementClicked.emit($event)"></app-button-increment>
+  </div>
+
+  <div class="add">
+    <app-button-standard icon="add"
+                         name="add to cart"
+                         [detail]="total | currency"
+                         [center]="false"
+                         [disabled]="false"
+                         [small]="true"
+                         (buttonClicked)="addClicked.emit()"></app-button-standard>
+  </div>
+</div>

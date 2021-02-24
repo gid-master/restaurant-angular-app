@@ -1,0 +1,38 @@
+<app-wrapper>
+
+  <app-container>
+    <app-menu-search [sortId]="sortId$ | async"
+                     [searchTerm]="searchTerm$ | async"
+                     (searchChanged)="onSearchChanged($event)"
+                     (sortClicked)="onSortOpenClicked()"></app-menu-search>
+  </app-container>
+
+
+  <div *ngIf="products$ | async as products">
+
+    <app-container *ngIf="products.length === 0">
+      <app-menu-empty></app-menu-empty>
+    </app-container>
+
+    <div *ngIf="products.length > 0">
+      <app-container>
+        <app-menu-filter [categories]="categories"
+                         [filterId]="filterId$ | async"
+                         (filterClicked)="onFilterClicked($event)"></app-menu-filter>
+      </app-container>
+
+      <app-container>
+        <app-block>
+          <app-grid-list [products]="products$ | async" (productClicked)="onProductClicked($event)"></app-grid-list>
+        </app-block>
+      </app-container>
+    </div>
+
+  </div>
+
+</app-wrapper>
+
+
+<app-modal-bottom-sheet title="Sort Products">
+  <app-menu-sort [sortId]="sortId$ | async" (sortClicked)="onSortClicked($event)"></app-menu-sort>
+</app-modal-bottom-sheet>

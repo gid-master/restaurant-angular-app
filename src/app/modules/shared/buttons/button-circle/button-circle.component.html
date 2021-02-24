@@ -1,0 +1,13 @@
+<button type="button"
+        class="button"
+        [class.selected]="selected"
+        [class.horizontal]="horizontal"
+        [class.small]="small"
+        [class.light]="light"
+        (click)="buttonClicked.emit()">
+  <div class="image">
+    <img *ngIf="!light" [src]="'assets/icons/light/' + icon + '.svg'" />
+    <img *ngIf="light" [src]="'assets/icons/primary/' + icon + '.svg'" />
+  </div>
+  <span *ngIf="name">{{ name }}</span>
+</button>

@@ -1,0 +1,7 @@
+<div class="comments">
+  <textarea class="input"
+            placeholder="Example: take onion off"
+            rows="7"
+            [value]="comments ? comments : ''"
+            (input)="commentsChanged.emit($event.target.value)"></textarea>
+</div>

@@ -1,0 +1,15 @@
+<button
+        type="button"
+        class="button"
+        [class.selected]="selected"
+        [class.disabled]="disabled"
+        [disabled]="disabled"
+        (click)="buttonClicked.emit()">
+  <img *ngIf="disabled" [src]="'assets/icons/disabled/' + icon + '.svg'" />
+  <img *ngIf="!disabled && selected" [src]="'assets/icons/primary/' + icon + '.svg'" />
+  <img *ngIf="!disabled && !selected" [src]="'assets/icons/dark/' + icon + '.svg'" />
+  <span class="text">
+    <small>{{ name }}</small>
+  </span>
+  <span class="badge" *ngIf="badge > 0">{{ badge }}</span>
+</button>

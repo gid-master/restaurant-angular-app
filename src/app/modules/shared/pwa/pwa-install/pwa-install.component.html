@@ -1,0 +1,28 @@
+<div class="install">
+  <div *ngIf="developmentMode">
+    <p>
+      You're in development mode, build your application in production mode in
+      order to test all PWA functionalities.
+    </p>
+  </div>
+
+  <div *ngIf="!developmentMode">
+    <p *ngIf="installed">
+      You have already installed the application and you can access it through
+      the home screen icon in your device.
+    </p>
+
+    <p *ngIf="!installed && ios">
+      IOS devices have a different behaviour for PWA applications, click on
+      add to home screen in your browser settings.
+    </p>
+  </div>
+
+  <div class="button">
+    <app-button-standard icon="touch_app"
+                         name="install application"
+                         [disabled]="installed || developmentMode || ios"
+                         [center]="true"
+                         (buttonClicked)="installClicked.emit()"></app-button-standard>
+  </div>
+</div>

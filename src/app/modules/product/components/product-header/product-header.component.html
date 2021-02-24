@@ -1,0 +1,25 @@
+<div class="header">
+  <div class="image-cover">
+    <div class="back">
+      <app-button-circle icon="arrow_back"
+                         [light]="true"
+                         (buttonClicked)="backClicked.emit()"></app-button-circle>
+    </div>
+    <img fallback [src]="product.image" />
+  </div>
+  <div class="details">
+    <h2>{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+
+    <div class="row">
+      <span class="price">
+        {{ product.price | currency }}
+        <small class="discount" *ngIf="product.previousPrice > 0">{{ product.previousPrice | currency }}</small>
+      </span>
+      <div class="category">
+        <img [src]="'assets/categories/' + product.category + '.svg'" />
+        <span>{{ product.category }}</span>
+      </div>
+    </div>
+  </div>
+</div>

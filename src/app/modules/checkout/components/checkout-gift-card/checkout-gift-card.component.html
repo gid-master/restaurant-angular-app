@@ -1,0 +1,15 @@
+<form novalidate class="form" [formGroup]="formGroup" #form="ngForm" (ngSubmit)="onSubmit()">
+
+  <div class="controller"
+       [class.error]="formGroup.get(CONTROL_FORM.GIFT_CARD).invalid && formGroup.get(CONTROL_FORM.GIFT_CARD).dirty">
+    <label class="label"><small>Type the gift code</small></label>
+    <input [formControlName]="CONTROL_FORM.GIFT_CARD"
+           type="text"
+           class="input" />
+    <span class="message"
+          *ngIf="formGroup.get(CONTROL_FORM.GIFT_CARD).hasError('required') && formGroup.get(CONTROL_FORM.GIFT_CARD).dirty">
+      <small>Gift card is required.</small>
+    </span>
+  </div>
+
+</form>

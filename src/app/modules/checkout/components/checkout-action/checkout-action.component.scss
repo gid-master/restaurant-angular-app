@@ -1,0 +1,19 @@
+@import "./variables";
+
+.action {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+
+    span {
+        color: $text-dark-secondary;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .item {
+        width: 100%;
+        margin-top: 15px;
+    }
+}

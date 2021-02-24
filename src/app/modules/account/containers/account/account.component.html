@@ -1,0 +1,26 @@
+<app-wrapper>
+
+  <app-container>
+    <app-block>
+      <app-account-bio [user]="user$ | async" (logoutClicked)="onLogoutClicked()"></app-account-bio>
+    </app-block>
+  </app-container>
+
+  <app-container>
+    <app-block>
+      <app-account-order-summary [ordersSummary]="ordersSummary$ | async"></app-account-order-summary>
+    </app-block>
+  </app-container>
+
+  <app-container>
+    <app-block title="Completed Orders">
+
+      <app-account-order-accordion [collapse]="collapse"
+                                   [orders]="orders$ | async"
+                                   (orderClicked)="onOrderClicked($event)"
+                                   (reviewClicked)="onReviewClicked($event)"></app-account-order-accordion>
+
+    </app-block>
+  </app-container>
+
+</app-wrapper>

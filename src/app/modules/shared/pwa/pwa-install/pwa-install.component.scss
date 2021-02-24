@@ -1,0 +1,17 @@
+@import "./variables";
+
+.install {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    p {
+        color: $text-dark-secondary;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,6 @@
+<div class="grid">
+  <div *ngFor="let product of products; let i = index">
+    <app-card-details [product]="product" (productClicked)="productClicked.emit($event)"></app-card-details>
+    <hr *ngIf="i < products.length - 1" />
+  </div>
+</div>

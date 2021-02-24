@@ -1,0 +1,15 @@
+<div class="total">
+  <div class="item">
+    <span class="title">Main meals ({{ cartSummary.quantityProducts }})</span>
+    <span class="price">{{ cartSummary.totalProducts | currency }}</span>
+  </div>
+  <div class="item">
+    <span class="title">Additional items ({{ cartSummary.quantityAdditionals }})</span>
+    <span class="price">{{ cartSummary.totalAdditionals | currency }}</span>
+  </div>
+  <hr />
+  <div class="item highlight">
+    <span class="title">TOTAL</span>
+    <span class="price">{{ cartSummary.total | currency }}</span>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<app-wrapper *ngIf="product$ | async as product">
+
+  <app-container>
+    <app-product-header [product]="product" (backClicked)="onBackClicked()"></app-product-header>
+  </app-container>
+
+  <app-container>
+    <app-block>
+      <app-product-macro [product]="product"></app-product-macro>
+    </app-block>
+  </app-container>
+
+  <app-container>
+    <app-block>
+      <app-product-ingredients [ingredients]="product.ingredients"></app-product-ingredients>
+    </app-block>
+  </app-container>
+
+
+  <app-container>
+    <app-block title="Additional"
+               [link]="'max ' + product.maxAdditionals + ' items'">
+      <app-product-additional [maxAdditionals]="product.maxAdditionals"
+                              [additionals]="product.additionals"
+                              (incrementClicked)="onIncrementClicked($event)"></app-product-additional>
+    </app-block>
+  </app-container>
+
+
+  <app-container>
+    <app-block title="Would you like to change ?"
+               subtitle="let our chefs to know">
+      <app-product-comments [comments]="product.comments"
+                            (commentsChanged)="onCommentsChanged($event)"></app-product-comments>
+    </app-block>
+  </app-container>
+
+  <app-container>
+    <app-block title="Clients Reviews">
+      <app-product-review [reviews]="product.reviews"></app-product-review>
+    </app-block>
+  </app-container>
+
+
+  <app-container [title]="'Other ' + (product.category | capitalCase)">
+    <app-grid-row type="vertical"
+                  [products]="fromCategories$ | async"
+                  (productClicked)="onProductClicked($event)"></app-grid-row>
+  </app-container>
+
+
+  <app-product-add-to-cart [total]="total$ | async"
+                           [quantity]="product.quantity"
+                           (incrementClicked)="onProductIncrementClicked($event)"
+                           (addClicked)="onAddClicked(product, cartId)"></app-product-add-to-cart>
+
+</app-wrapper>

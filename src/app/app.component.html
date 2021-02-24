@@ -1,0 +1,10 @@
+<router-outlet></router-outlet>
+
+<app-toolbar *ngIf="showToolbar$ | async"
+             [cartQuantity]="cartQuantity$ | async"
+             [toolbarId]="toolbarId$ | async"
+             (toolbarClicked)="onToolbarClicked($event)"></app-toolbar>
+
+<app-pwa-controller></app-pwa-controller>
+<app-modal-backdrop></app-modal-backdrop>
+<app-modal-snackbar></app-modal-snackbar>
