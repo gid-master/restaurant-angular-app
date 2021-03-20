@@ -31,7 +31,7 @@ That's all, now you can also have the project listening to the backend API.
 ## Application Content
 
 - [Devices Suport](#devices-support)
-- [Angular 11 Approaches](#vue-3-approaches)
+- [Angular Approaches](#angular-approaches)
 - [How to Run](#how-tu-run)
 - [Using Mock](#using-mock)
 - [Using API's](#using-api's)
@@ -61,7 +61,7 @@ Check out the list of screens that can be used to play around with this demo.
 - Chrome
 - Safari
 
-## Angular 11 Approaches
+## Angular Approaches
 
 There are some of the Angular concepts that were approached in this application.\
 I used standard eslint and prettier settings, but feel free to switch to the one you like the most.\
